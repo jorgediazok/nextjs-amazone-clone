@@ -27,7 +27,7 @@ const Product = ({ id, title, description, price, image, category }) => {
         {Array(rating)
           .fill()
           .map((_, i) => (
-            <StarIcon className="h-5 text-yellow-500" />
+            <StarIcon className="h-5 text-yellow-500" key={i} />
           ))}
       </div>
 

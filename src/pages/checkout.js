@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Header from '../components/Header';
 import Image from 'next/image';
 import { useSelector } from 'react-redux';
@@ -16,8 +17,11 @@ const checkout = () => {
 
   const createCheckoutSession = async () => {
     const stripe = await stripePromise;
-
     //Call the backend to create the checkout session
+    const checkoutSession = await axios.post('/api/create-checkout-session', {
+      items: items,
+      email: session.user.email,
+    });
   };
 
   return (
